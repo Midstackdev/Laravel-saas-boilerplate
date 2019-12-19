@@ -33,5 +33,10 @@
     <a class="nav-link {{ return_if(on_page('account/subscription/card'), 'active') }}" href="{{ route('account.subscription.card.index') }}">
       Update card
     </a>
+    @teamsubscription()
+      <a class="nav-link {{ return_if(on_page('account/subscription/team'), 'active') }}" href="{{ route('account.subscription.team.index') }}">
+        Manage team
+      </a>
+    @endteamsubscription
   </nav>
 @endsubscribed

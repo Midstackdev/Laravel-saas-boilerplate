@@ -47,5 +47,13 @@ class BladeServiceProvider extends ServiceProvider
         Blade::directive('endsubscriptioncancelled', function () {
             return "<?php endif; ?>";
         });
+
+        Blade::directive('teamsubscription', function () {
+            return "<?php if(auth()->user()->hasTeamSubscription()): ?>";
+        });
+
+        Blade::directive('endteamsubscription', function () {
+            return "<?php endif; ?>";
+        });
     }
 }

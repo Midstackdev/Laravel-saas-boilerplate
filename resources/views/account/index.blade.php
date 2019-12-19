@@ -1,5 +1,9 @@
 @extends('account.layouts.default')
 
 @section('account.content')
-    acccount overview
+	<div class="card">
+		<div class="card-body">
+    		{{ auth()->user()->plan }}
+    	</div>
+    </div>
 @endsection
