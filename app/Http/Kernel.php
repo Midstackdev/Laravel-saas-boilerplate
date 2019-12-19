@@ -63,6 +63,11 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'confirmation_token.expired' => \App\Http\Middleware\ChecksExpiredConfirmationTokens::class,
         'auth.register' => \App\Http\Middleware\AuthenticateRegister::class,
+        'subscription.active' => \App\Http\Middleware\Subscription\RedirectIfNotActive::class,
+        'subscription.notcancelled' => \App\Http\Middleware\Subscription\RedirectIfCancelled::class,
+        'subscription.cancelled' => \App\Http\Middleware\Subscription\RedirectIfNotCancelled::class,
+        'subscription.customer' => \App\Http\Middleware\Subscription\RedirectIfNotCustomer::class,
+        'subscription.inactive' => \App\Http\Middleware\Subscription\RedirectIfNotInactive::class,
     ];
 
     /**
