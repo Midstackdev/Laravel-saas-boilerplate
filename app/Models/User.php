@@ -71,4 +71,9 @@ class User extends Authenticatable
             Plan::class, Subscription::class, 'user_id', 'gateway_id', 'id', 'stripe_plan'
         )->orderBy('subscriptions.created_at', 'desc');
     }
+
+    public function teams()
+    {
+        return $this->belongsToMany(Team::class);
+    }
 }

@@ -27,7 +27,7 @@ Route::group(['prefix' => 'account', 'middleware' => ['auth'], 'as' => 'account.
 	/**
 	 * subscription
 	 */
-	Route::group(['prefix' => 'subscription', 'namespace' => 'Account\Subscription', 'as' => 'subscription.'], function() {
+	Route::group(['prefix' => 'subscription', 'namespace' => 'Account\Subscription', 'as' => 'subscription.', 'middleware' => ['subscription.owner']], function() {
 		/**
 		 * card
 		 */
@@ -62,6 +62,9 @@ Route::group(['prefix' => 'account', 'middleware' => ['auth'], 'as' => 'account.
 		Route::group(['middleware' => 'subscription.team'], function() {
 			Route::get('/team', 'SubscriptionTeamController@index')->name('team.index');
 			Route::patch('/team', 'SubscriptionTeamController@update')->name('team.update');
+
+			Route::post('/team/member', 'SubscriptionTeamMemeberController@store')->name('team.member.store');
+			Route::delete('/team/member/{user}', 'SubscriptionTeamMemeberController@destroy')->name('team.member.destroy');
 		});
 	});
 });

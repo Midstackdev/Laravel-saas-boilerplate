@@ -55,5 +55,13 @@ class BladeServiceProvider extends ServiceProvider
         Blade::directive('endteamsubscription', function () {
             return "<?php endif; ?>";
         });
+
+        Blade::directive('notpiggybacksubscription', function () {
+            return "<?php if(!auth()->user()->hasPiggybacksubscription()): ?>";
+        });
+
+        Blade::directive('endnotpiggybacksubscription', function () {
+            return "<?php endif; ?>";
+        });
     }
 }
