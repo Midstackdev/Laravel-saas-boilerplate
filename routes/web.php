@@ -54,6 +54,7 @@ Route::group(['prefix' => 'account', 'middleware' => ['auth'], 'as' => 'account.
 		 */
 		Route::group(['middleware' => 'subscription.notcancelled'], function() {
 			Route::get('/swap', 'SubscriptionSwapController@index')->name('swap.index');
+			Route::post('/swap', 'SubscriptionSwapController@store')->name('swap.store');
 		});
 
 		/**
