@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Traits\{HasConfirmationTokens, HasSubscriptions};
+use App\Models\Traits\{HasConfirmationTokens, HasSubscriptions, HasTwoFactorAuthentication};
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -12,7 +12,7 @@ use Laravel\Cashier\Subscription;
 
 class User extends Authenticatable
 {
-    use Notifiable, HasConfirmationTokens, Billable, HasSubscriptions, SoftDeletes;
+    use Notifiable, HasConfirmationTokens, Billable, HasSubscriptions, SoftDeletes, HasTwoFactorAuthentication;
 
     /**
      * The attributes that are mass assignable.

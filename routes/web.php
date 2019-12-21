@@ -31,6 +31,12 @@ Route::group(['prefix' => 'account', 'middleware' => ['auth'], 'as' => 'account.
 	Route::post('deactivate', 'Account\DeactivateController@store')->name('deactivate.store');
 
 	/**
+	 * Two factor
+	 */
+	Route::get('twofactor', 'Account\TwoFactorController@index')->name('twofactor.index');
+	Route::post('twofactor', 'Account\TwoFactorController@store')->name('twofactor.store');
+
+	/**
 	 * subscription
 	 */
 	Route::group(['prefix' => 'subscription', 'namespace' => 'Account\Subscription', 'as' => 'subscription.', 'middleware' => ['subscription.owner']], function() {

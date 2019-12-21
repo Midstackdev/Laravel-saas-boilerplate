@@ -36,4 +36,8 @@ return [
         'model' => env('STRIPE_MODEL'),
     ],
 
+    'authy' => [
+        'secret' => env('AUTHY_SECRET')
+    ]
+
 ];
