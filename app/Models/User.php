@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Traits\{HasConfirmationTokens, HasSubscriptions};
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Cashier\Billable;
@@ -11,7 +12,7 @@ use Laravel\Cashier\Subscription;
 
 class User extends Authenticatable
 {
-    use Notifiable, HasConfirmationTokens, Billable, HasSubscriptions;
+    use Notifiable, HasConfirmationTokens, Billable, HasSubscriptions, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
