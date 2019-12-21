@@ -35,6 +35,7 @@ Route::group(['prefix' => 'account', 'middleware' => ['auth'], 'as' => 'account.
 	 */
 	Route::get('twofactor', 'Account\TwoFactorController@index')->name('twofactor.index');
 	Route::post('twofactor', 'Account\TwoFactorController@store')->name('twofactor.store');
+	Route::post('twofactor/verify', 'Account\TwoFactorController@verify')->name('twofactor.verify');
 
 	/**
 	 * subscription

@@ -12,7 +12,7 @@
   	Deactivate account
   </a>
   <a class="nav-link {{ return_if(on_page('*/twofactor'), 'active') }}" href="{{ route('account.twofactor.index') }}">
-    two factor authentication
+    Two factor authentication
   </a>
 </nav>
 
