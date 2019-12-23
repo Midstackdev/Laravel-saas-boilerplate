@@ -50,7 +50,23 @@ class LoginController extends Controller
         if ($user->hasNotActivated()) {
             $this->guard()->logout();
 
-            return back()->withError('Your account is not active');
+            return back()->withError('Your account is not active.');
         }
+
+        if ($user->twoFactorEnabled()) {
+            return $this->startTwoFactorAuthentication($request, $user);
+        }
+    }
+
+    protected function startTwoFactorAuthentication(Request $request, $user)
+    {
+        session()->put('twofactor', (object) [
+            'user_id' => $user->id,
+            'remember' => $request->has('remember'),
+        ]);
+
+        $this->guard()->logout();
+
+        return redirect()->route('login.twofactor.index');
     }
 }
