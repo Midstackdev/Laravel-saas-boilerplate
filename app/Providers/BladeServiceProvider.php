@@ -32,6 +32,14 @@ class BladeServiceProvider extends ServiceProvider
             return "<?php endif; ?>";
         });
 
+        Blade::directive('notsubscribed', function () {
+            return "<?php if(!auth()->check() || auth()->user()->doesNotHaveSubscription()): ?>";
+        });
+
+        Blade::directive('endnotsubscribed', function () {
+            return "<?php endif; ?>";
+        });
+
         Blade::directive('subscriptionnotcancelled', function () {
             return "<?php if(auth()->user()->hasNotCancelled()): ?>";
         });
@@ -61,6 +69,22 @@ class BladeServiceProvider extends ServiceProvider
         });
 
         Blade::directive('endnotpiggybacksubscription', function () {
+            return "<?php endif; ?>";
+        });
+
+        Blade::directive('role', function ($role) {
+            return "<?php if(auth()->user()->hasRole($role)): ?>";
+        });
+
+        Blade::directive('endrole', function ($role) {
+            return "<?php endif; ?>";
+        });
+
+        Blade::directive('impersonating', function () {
+            return "<?php if(session()->has('impersonate')): ?>";
+        });
+
+        Blade::directive('endimpersonating', function () {
             return "<?php endif; ?>";
         });
     }
