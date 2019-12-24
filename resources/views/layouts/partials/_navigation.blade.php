@@ -31,7 +31,7 @@
                         </li>
                     @endif
                 @else
-                    @impersonating('admin')
+                    @impersonating()
                         <li class="nav-item">
                             <a class="nav-link" href="#" onclick="event.preventDefault(); document.getElementById('impersonate.destroy').submit();">
                                 {{ __('Stop impersonating') }}

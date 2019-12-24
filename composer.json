@@ -13,6 +13,7 @@
         "guzzlehttp/guzzle": "^6.5",
         "laravel/cashier": "9.*",
         "laravel/framework": "^6.2",
+        "laravel/passport": "^8.0",
         "laravel/tinker": "^1.0"
     },
     "require-dev": {

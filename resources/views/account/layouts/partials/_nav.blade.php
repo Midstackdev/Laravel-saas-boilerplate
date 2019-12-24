@@ -14,6 +14,9 @@
   <a class="nav-link {{ return_if(on_page('*/twofactor'), 'active') }}" href="{{ route('account.twofactor.index') }}">
     Two factor authentication
   </a>
+  <a class="nav-link {{ return_if(on_page('*/tokens'), 'active') }}" href="{{ route('account.tokens.index') }}">
+    API Tokens
+  </a>
 </nav>
 
 <hr>
